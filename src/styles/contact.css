@@ -1,0 +1,50 @@
+body {
+	font-family: 'Lexend Exa';
+}
+.content {
+  padding: 7rem 0;
+}
+
+h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.form-control {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+}
+
+.btn,
+.form-control {
+  height: 55px;
+}
+
+#message {
+  resize: vertical;
+}
+
+#form-message-warning {
+  color: #b90b0b;
+}
+#form-message-success {
+  color: #55a44e;
+  font-size: 18px;
+  font-weight: bold;
+}
+.submitting {
+  float: left;
+  width: 100%;
+  padding: 10px 0;
+  display: none;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+}
