@@ -3,7 +3,7 @@ import '../styles/style.css'
 
 // TODO: Add a comment explaining how we are able to extract the key value pairs from props
 
-function NavTabs({ currentPage, handlePageChange }) {
+function Nav({ currentPage, handlePageChange }) {
   return (
     <div>
       <ul className="navbox">
@@ -20,15 +20,15 @@ function NavTabs({ currentPage, handlePageChange }) {
         </li>
         <li className="nav-item">
           <a
-            href="#projects"
-            onClick={() => handlePageChange("Projects")}
+            href="#portfolio"
+            onClick={() => handlePageChange("Portfolio")}
             //  TODO: Add a comment explaining what this logic is doing
 
             className={
-              currentPage === "Projects" ? "nav-link active" : "nav-link"
+              currentPage === "Portfolio" ? "nav-link active" : "nav-link"
             }
           >
-            Projects
+            Portfolio
           </a>
         </li>
         <li className="nav-item">
@@ -49,4 +49,4 @@ function NavTabs({ currentPage, handlePageChange }) {
   );
 }
 
-export default NavTabs;
+export default Nav;
