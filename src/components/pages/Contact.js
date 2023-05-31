@@ -1,61 +1,110 @@
 import React, { useState } from 'react';
 
-export default function Contact() {
-	const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+const Contact = () => {
+    // Define state variables for the name, email, and message fields
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
-	const handleFormChange = (e) => {
-		setFormState({ ...formState, [e.target.name]: e.target.value });
-	};
+    // Define state variables to keep track of any validation errors
+    const [nameError, setNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [messageError, setMessageError] = useState(false);
 
-	return (
-		<div className='container mx-auto mt-8 p-4'>
-			<h2 className='text-lg md:text-2xl text-slate-800'>Contact me</h2>
-			<form
-				onSubmit={(e) => {
-					e.preventDefault();
-					setFormState({ name: '', email: '', message: '' });
-				}}
-			>
-				<label className='block text-slate-800 mt-4' htmlFor='name'>
-					Name
-				</label>
-				<input
-					className='block w-full max-w-lg border border-slate-800 rounded-md p-2'
-					type='text'
-					name='name'
-					id='name'
-					required
-					value={formState.name}
-					onChange={handleFormChange}
-				/>
-				<label className='block text-slate-800 mt-4' htmlFor='email'>
-					Email
-				</label>
-				<input
-					className='block w-full max-w-lg border border-slate-800 rounded-md p-2'
-					type='email'
-					name='email'
-					id='email'
-					required
-					value={formState.email}
-					onChange={handleFormChange}
-				/>
-				<label className='block text-slate-800 mt-4' htmlFor='message'>
-					Message
-				</label>
-				<textarea
-					className='block w-full max-w-lg border border-slate-800 rounded-md p-2'
-					name='message'
-					id='message'
-					rows='5'
-					required
-					value={formState.message}
-					onChange={handleFormChange}
-				/>
-				<button className='block bg-cyan-700 hover:bg-cyan-800 text-white rounded-md p-2 mt-4' type='submit'>
-					Submit
-				</button>
-			</form>
-		</div>
-	);
-}
+    // Define a state variable to track whether the form has been submitted
+    const [formSubmit, setFormSubmit] = useState(false);
+
+    // Handle the form submission event
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setNameError(false);
+        setEmailError(false);
+        setMessageError(false);
+
+        // Check if the name field is empty, set an error if it is
+        if (name === '') {
+            setNameError(true);
+            return;
+        }
+
+        // Use a regular expression to validate the email format, set an error if it's not valid
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setEmailError(true);
+            return;
+        }
+
+        // Check if the message field is empty, set an error if it is
+        if (message === '') {
+            setMessageError(true);
+            return;
+        }
+
+        // Set the formSubmit state variable to true to show a success message
+        setFormSubmit(true);
+    };
+
+    return (
+        <section id="contact">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="name">Name:</label>
+                                <input
+                                    type="text"
+                                    className={`form-control ${nameError ? 'is-invalid' : ''}`}
+                                    id="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                {nameError && (
+                                    <div className="invalid-feedback">Please enter your name</div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Email address:</label>
+                                <input
+                                    type="email"
+                                    className={`form-control ${emailError ? 'is-invalid' : ''}`}
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                {emailError && (
+                                    <div className="invalid-feedback">Please enter a valid email address</div>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="message">Message:</label>
+                                <textarea
+                                    className={`form-control ${messageError ? 'is-invalid' : ''}`}
+                                    id="message"
+                                    rows="5"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                ></textarea>
+                                {messageError && (
+                                    <div className="invalid-feedback">Please enter a message:</div>
+                                )}
+                            </div>
+                            <button type="submit" className="btn btn-primary mx-auto d-block">
+                                Submit
+                            </button>
+                        </form>
+
+                        {/* Show a success message if the form has been submitted */}
+                        {formSubmit && (
+                            <div className="alert alert-success mt-3" role="alert">
+                                Thank you for reaching out to me!
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Contact;
