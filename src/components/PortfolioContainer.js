@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Nav from './Nav'
+import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
@@ -11,13 +12,16 @@ export default function PortfolioContainer() {
 
 
   const renderPage = () => {
+    if (currentPage === 'About') {
+      return <About />;
+    }
     if (currentPage === 'Contact') {
       return <Contact />;
     }
     if (currentPage === 'Portfolio') {
       return <Portfolio />;
     }
-    return <About />;
+    return <Home />;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
