@@ -1,5 +1,6 @@
 .navbox {
-    font-family: 'Lexend Exa', sans-serif;
-    text-align: end;
-    list-style-type: none;
+    color: "#89CFF0";
+    align-content: right;
+    text-align: right;
+    font-weight: bold;
 }

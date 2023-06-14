@@ -5,8 +5,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Im
 
 const Footer = () => { 
   return (
-    <footer className="py-3 footer"> {/* Rendering the footer */}
-      <div className="container">
+    <footer className="py-3 footer mt-auto "> {/* Rendering the footer */}
+      <div className="container footer">
         <div className="row">
           <div className="col-12 text-center">
             <p className="footerText">&copy; Made with ❤ by: caro vigies</p>
