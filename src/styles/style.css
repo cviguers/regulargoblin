@@ -1,6 +1,21 @@
-.navbox {
-    color: "#89CFF0";
-    align-content: right;
-    text-align: right;
-    font-weight: bold;
+* {
+    font-family: 'Lexend Exa';
+}
+
+.header {
+    font-size: 40pt;
+    padding: 1%;
+}
+
+.break {
+    margin-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* about */
+.aboutme {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
