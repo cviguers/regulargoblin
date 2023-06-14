@@ -57,8 +57,9 @@ const Portfolio = () => {
 
   return (
     // Returning a section containing a container element with some margin
-    <section id="portfolio" className="container my-5">
-      <div className="row">
+    <section id="portfolio">
+      <p className="header">projects</p>
+	  <div className="row">
         {" "}
         {/* Rendering a row of project components */}
         {/* Mapping over an array of 'projects' and rendering a 'Project' component for each */}
