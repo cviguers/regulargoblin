@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export default function Experience() {
   return (
-    <div id="#experience">
-      <p> this is my experience section </p>
-    </div>
+    <section id="experience">
+      <div id="#experience">
+        <p> this is my experience section </p>
+      </div>
+    </section>
   );
 }
