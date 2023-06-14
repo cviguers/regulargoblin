@@ -38,8 +38,9 @@ export default function Nav() {
       justifyContent="space-between"
       w="100%"
     >
+      <Link href="#home">
       <Box>C V</Box>
-
+      </Link>
       <Flex alignItems="center">
         <Stack direction="row" spacing={7}>
           <Link href="#about">
