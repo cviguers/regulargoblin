@@ -6,6 +6,7 @@ export default function About() {
     <section id="about">
       <div>
         <p className="header">about me</p>
+        <div className="section">
         <p className="aboutme">
           {" "}
           full stack web developer leveraging background in fin-tech and across
@@ -16,6 +17,7 @@ export default function About() {
           leveraging continuous learning and thorough research.{" "}
         </p>
         <hr className='break'></hr>
+        </div>
       </div>
     </section>
   );

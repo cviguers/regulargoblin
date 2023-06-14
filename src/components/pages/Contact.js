@@ -47,6 +47,7 @@ const Contact = () => {
   return (
     <section id="contact">
       <p className="header">contact</p>
+      <div className="section">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -107,6 +108,7 @@ const Contact = () => {
             )}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
