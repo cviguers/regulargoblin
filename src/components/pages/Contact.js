@@ -1,117 +1,147 @@
-import React, { useState } from "react";
+import {
+  Container,
+  Flex,
+  Box,
+  Heading,
+  Text,
+  IconButton,
+  Button,
+  VStack,
+  HStack,
+  Wrap,
+  WrapItem,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Textarea,
+} from "@chakra-ui/react";
+import {
+  MdPhone,
+  MdEmail,
+  MdLocationOn,
+  MdFacebook,
+  MdOutlineEmail,
+} from "react-icons/md";
+import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Importing FontAwesome Icons
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-const Contact = () => {
-  // Define state variables for the name, email, and message fields
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  // Define state variables to keep track of any validation errors
-  const [nameError, setNameError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [messageError, setMessageError] = useState(false);
-
-  // Define a state variable to track whether the form has been submitted
-  const [formSubmit, setFormSubmit] = useState(false);
-
-  // Handle the form submission event
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setNameError(false);
-    setEmailError(false);
-    setMessageError(false);
-
-    // Check if the name field is empty, set an error if it is
-    if (name === "") {
-      setNameError(true);
-      return;
-    }
-
-    // Use a regular expression to validate the email format, set an error if it's not valid
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      setEmailError(true);
-      return;
-    }
-
-    // Check if the message field is empty, set an error if it is
-    if (message === "") {
-      setMessageError(true);
-      return;
-    }
-
-    // Set the formSubmit state variable to true to show a success message
-    setFormSubmit(true);
-  };
-
+export default function contact() {
   return (
-    <section id="contact">
+    <div>
       <p className="header">contact</p>
-      <div className="section">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="name">Name:</label>
-                <input
-                  type="text"
-                  className={`form-control ${nameError ? "is-invalid" : ""}`}
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                {nameError && (
-                  <div className="invalid-feedback">Please enter your name</div>
-                )}
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email address:</label>
-                <input
-                  type="email"
-                  className={`form-control ${emailError ? "is-invalid" : ""}`}
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                {emailError && (
-                  <div className="invalid-feedback">
-                    Please enter a valid email address
-                  </div>
-                )}
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">Message:</label>
-                <textarea
-                  className={`form-control ${messageError ? "is-invalid" : ""}`}
-                  id="message"
-                  rows="5"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
-                {messageError && (
-                  <div className="invalid-feedback">
-                    Please enter a message:
-                  </div>
-                )}
-              </div>
-              <button type="submit" className="btn btn-primary mx-auto d-block">
-                Submit
-              </button>
-            </form>
-
-            {/* Show a success message if the form has been submitted */}
-            {formSubmit && (
-              <div className="alert alert-success mt-3" role="alert">
-                Thank you for reaching out to me!
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
+      <Container maxW="full" mt={0} centerContent overflow="hidden">
+        <Flex>
+          <Box>
+            <Box>
+              <Wrap spacing={{ base: 10, sm: 3, md: 5, lg: 20 }}>
+                <WrapItem>
+                  <Box>
+                    <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                      <VStack pl={0} spacing={3} alignItems="flex-start">
+                        <Button
+                          size="md"
+                          variant="ghost"
+                          leftIcon={<MdPhone size="20px" />}
+                        >
+                          732-272-8289
+                        </Button>
+                        <Button
+                          size="md"
+                          variant="ghost"
+                          leftIcon={<MdEmail size="20px" />}
+                        >
+                          cviguers@gmail.com
+                        </Button>
+                        <Button
+                          size="md"
+                          variant="ghost"
+                          leftIcon={<MdLocationOn size="20px" />}
+                        >
+                          Charlotte, North Carolina
+                        </Button>
+                      </VStack>
+                    </Box>
+                    <div className="socialIcons">
+                    <HStack
+                      mt={{ lg: 10, md: 10 }}
+                      spacing={5}
+                      px={5}
+                      alignContent="center"
+                    >
+                      <a href="https://github.com/cviguers">
+                        <FontAwesomeIcon
+                          icon={faGithub}
+                          className="icon"
+                          style={{ fontSize: "34px"}}
+                        />
+                      </a>
+                      <a href="https://www.linkedin.com/in/caroline-viguers-1568531ba/">
+                        <FontAwesomeIcon
+                          icon={faLinkedin}
+                          style={{ fontSize: "34px" }}
+                          className="px-3 icon"
+                        />
+                      </a>
+                    </HStack>
+                    </div>
+                  </Box>
+                </WrapItem>
+                <WrapItem>
+                  <Box borderRadius="lg">
+                    <Box m={8}>
+                      <VStack spacing={5}>
+                        <FormControl id="name">
+                          <FormLabel>your name</FormLabel>
+                          <InputGroup borderColor="#E0E1E7">
+                            <InputLeftElement
+                              pointerEvents="none"
+                              children={<BsPerson color="gray.800" />}
+                            />
+                            <Input type="text" size="md" />
+                          </InputGroup>
+                        </FormControl>
+                        <FormControl id="name">
+                          <FormLabel>Mail</FormLabel>
+                          <InputGroup borderColor="#E0E1E7">
+                            <InputLeftElement
+                              pointerEvents="none"
+                              children={<MdOutlineEmail color="gray.800" />}
+                            />
+                            <Input type="text" size="md" />
+                          </InputGroup>
+                        </FormControl>
+                        <FormControl id="name">
+                          <FormLabel>Message</FormLabel>
+                          <Textarea
+                            borderColor="gray.300"
+                            _hover={{
+                              borderRadius: "gray.300",
+                            }}
+                            placeholder="message"
+                          />
+                        </FormControl>
+                        <FormControl id="name" float="right">
+                          <Button
+                            variant="solid"
+                            bg="#0D74FF"
+                            color="white"
+                            _hover={{}}
+                          >
+                            Send Message
+                          </Button>
+                        </FormControl>
+                      </VStack>
+                    </Box>
+                  </Box>
+                </WrapItem>
+              </Wrap>
+            </Box>
+          </Box>
+        </Flex>
+      </Container>
+    </div>
   );
-};
-
-export default Contact;
+}
