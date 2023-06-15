@@ -1,8 +1,8 @@
 {
-  "name": "reactportfolio",
+  "name": "regulargoblin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cviguers.github.io/reactportfolio",
+  "homepage": "https://cviguers.github.io/regulargoblin",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.1",
