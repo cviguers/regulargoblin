@@ -2,16 +2,13 @@ import {
   Container,
   Flex,
   Box,
-  Heading,
-  Text,
-  IconButton,
   Button,
   VStack,
   HStack,
   Wrap,
   WrapItem,
+  Center,
   FormControl,
-  FormLabel,
   Input,
   InputGroup,
   InputLeftElement,
@@ -24,21 +21,39 @@ import {
   MdFacebook,
   MdOutlineEmail,
 } from "react-icons/md";
-import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Importing FontAwesome Icons
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-export default function contact() {
+import React, { useState } from "react";
+
+export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:cviguers@gmail.com?subject=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(
+      name
+    )}%0AEmail:%20${encodeURIComponent(
+      email
+    )}%0AMessage:%20${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+  };
   return (
     <div>
       <p className="header">contact</p>
-      <Container maxW="full" mt={0} centerContent overflow="hidden">
+      <Container maxW="full" centerContent overflow="hidden">
         <Flex>
           <Box>
             <Box>
+              
               <Wrap spacing={{ base: 10, sm: 3, md: 5, lg: 20 }}>
+                <Center axis='both'>
                 <WrapItem>
                   <Box>
+                  
                     <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                       <VStack pl={0} spacing={3} alignItems="flex-start">
                         <Button
@@ -64,9 +79,9 @@ export default function contact() {
                         </Button>
                       </VStack>
                     </Box>
+                    <Center axis='both'>
                     <div className="socialIcons">
                     <HStack
-                      mt={{ lg: 10, md: 10 }}
                       spacing={5}
                       px={5}
                       alignContent="center"
@@ -87,55 +102,70 @@ export default function contact() {
                       </a>
                     </HStack>
                     </div>
+                    </Center>
                   </Box>
+                  
                 </WrapItem>
+                </Center>
                 <WrapItem>
-                  <Box borderRadius="lg">
-                    <Box m={8}>
-                      <VStack spacing={5}>
-                        <FormControl id="name">
-                          <FormLabel>your name</FormLabel>
-                          <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement
-                              pointerEvents="none"
-                              children={<BsPerson color="gray.800" />}
-                            />
-                            <Input type="text" size="md" />
-                          </InputGroup>
-                        </FormControl>
-                        <FormControl id="name">
-                          <FormLabel>Mail</FormLabel>
-                          <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement
-                              pointerEvents="none"
-                              children={<MdOutlineEmail color="gray.800" />}
-                            />
-                            <Input type="text" size="md" />
-                          </InputGroup>
-                        </FormControl>
-                        <FormControl id="name">
-                          <FormLabel>Message</FormLabel>
-                          <Textarea
-                            borderColor="gray.300"
-                            _hover={{
-                              borderRadius: "gray.300",
-                            }}
-                            placeholder="message"
-                          />
-                        </FormControl>
-                        <FormControl id="name" float="right">
-                          <Button
-                            variant="solid"
-                            bg="#0D74FF"
-                            color="white"
-                            _hover={{}}
-                          >
-                            Send Message
-                          </Button>
-                        </FormControl>
-                      </VStack>
-                    </Box>
-                  </Box>
+      <form onSubmit={handleSubmit}>
+        <Box borderRadius="lg">
+          <Box m={8}>
+            <VStack spacing={5}>
+              <FormControl id="name">
+                <InputGroup borderColor="#E0E1E7">
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={<BsPerson color="gray.800" />}
+                  />
+                  <Input
+                    type="text"
+                    size="md"
+                    placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </InputGroup>
+              </FormControl>
+              <FormControl id="email">
+                <InputGroup borderColor="#E0E1E7">
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={<MdOutlineEmail color="gray.800" />}
+                  />
+                  <Input
+                    type="email"
+                    size="md"
+                    placeholder="Your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </InputGroup>
+              </FormControl>
+              <FormControl id="message">
+                <Textarea
+                  borderColor="gray.300"
+                  placeholder="Your Message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </FormControl>
+              <FormControl id="submit" float="right">
+                <Button
+                  type="submit"
+                  variant="solid"
+                  bg="#0D74FF"
+                  color="white"
+                  _hover={{}}
+                >
+                  Send Message
+                </Button>
+              </FormControl>
+            </VStack>
+          </Box>
+        </Box>
+      </form>
+
                 </WrapItem>
               </Wrap>
             </Box>
