@@ -26,7 +26,7 @@ export default function Experience() {
             <TabPanel>
               <p>
                 <span className="position">
-                  Written Communications Specialist:Team Lead
+                  Written Communications Specialist: Team Lead
                 </span>{" "}
                 <span className="dateworked">December 2021 – January 2023</span>
               </p>

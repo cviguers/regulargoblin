@@ -13,7 +13,7 @@ const Portfolio = () => {
     {
       title: "Eaternational",
       description:
-        "In this full stack application, a user can browse international snacks which are pulled from a MySQL / Sequelize database. In combination with Node.js and Express.js, we have created a RESTful API that allows users to make both GET and POST requests to sort through region specific products and then add those products to a form for follow up.",
+        "RESTful API that allows a user to browse international snacks which are pulled from a MySQL / Sequelize database. In combination with Node.js and Express.js, users can make both GET and POST requests to sort through region specific products and then add those products to a form for follow up.",
       image: eaternationalImg,
       deployedLink: "https://eaternational.herokuapp.com/",
       githubLink: "https://github.com/cviguers/eaternational",
@@ -24,7 +24,7 @@ const Portfolio = () => {
         "A MERN-stack single-page dating application, a user can create and maintain a profile that allows them to post life updates, browse other users and their posts, and much more. This is made possible through a scalable MongoDB back end, a GraphQL API, and an Express.js and Node.js server with a React front end, implementing user authentication with JWT to build a user-focused platform.",
       image: wingmanImg,
       deployedLink: "https://wingman-dating.herokuapp.com/",
-      githubLink: "",
+      githubLink: "https://github.com/cviguers/wingman",
     },
     {
       title: "Tech Blog",
@@ -64,6 +64,7 @@ const Portfolio = () => {
     <section id="portfolio">
       <p className="header">projects</p>
       <div className="section">
+      <p className="completeList">to see a complete list of my work, <a href="https://github.com/cviguers/"><span>visit my github</span></a></p>
         <div className="row">
           {" "}
           {/* Rendering a row of project components */}

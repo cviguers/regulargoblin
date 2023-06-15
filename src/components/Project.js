@@ -1,31 +1,36 @@
 import React from 'react'; // Importing the React library
+import { Card, CardHeader, CardBody, CardFooter, Image, Stack, Heading, Text, Button } from '@chakra-ui/react'
 
 function Project({ project }) { // Defining a functional component that takes in a 'project' object as a prop
 
   const { title, description, image, githubLink, deployedLink } = project;   // Destructuring the 'project' object to extract its properties
 
-  return (   // Rendering the 'Project' component with the extracted properties
-    <div key={title} className="col-lg-4 col-md-6 mb-4">
-      <div className="card h-100">
-        <img src={image} height={250} width={250} className="card-img-top" alt={title} />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
-        </div>
+  return (
+      <Card
+  direction={{ base: 'column', sm: 'row' }}
+  overflow='hidden'
+  variant='outline'
+>
+  <Image
+    src={image} height={250} width={250} className="card-img-top" alt={title} 
+  />
 
-        <div>      {/* Rendering a link to the GitHub repository */}
-          <a href={githubLink}>
-            GitHub Repository
-          </a>
-        </div>
+  <Stack>
+    <CardBody>
+      <Heading size='md'>{title}</Heading>
 
-        <div>
-          <a href={deployedLink}>  {/* Rendering a link to the deployed project */}
-            Deployed Website
-          </a>
-        </div>
-      </div>
-    </div>
+      <Text py='2'>
+      {description}
+      </Text>
+
+      <Text>
+      {githubLink}
+      {deployedLink}
+      </Text>
+    </CardBody>
+  </Stack>
+</Card>
+    // </div>
   );
 }
 
