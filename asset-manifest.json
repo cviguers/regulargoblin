@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/regulargoblin/static/css/main.f093cda1.css",
+    "main.js": "/regulargoblin/static/js/main.eaf7f20b.js",
+    "static/media/eaternational.png": "/regulargoblin/static/media/eaternational.6f8c16a591ebbb66f901.png",
+    "static/media/weatherdashboard.png": "/regulargoblin/static/media/weatherdashboard.a6a88e984153f92ad67d.png",
+    "static/media/techblog.jpg": "/regulargoblin/static/media/techblog.451c1f2823ad383456b2.jpg",
+    "static/media/pokedex.jpg": "/regulargoblin/static/media/pokedex.4026f688828b69b7be1e.jpg",
+    "static/media/logogen.jpg": "/regulargoblin/static/media/logogen.0fe2512602dc6bcf71fc.jpg",
+    "static/media/wingman.jpg": "/regulargoblin/static/media/wingman.c6bf3f87a9fcd08656e7.jpg",
+    "index.html": "/regulargoblin/index.html",
+    "main.f093cda1.css.map": "/regulargoblin/static/css/main.f093cda1.css.map",
+    "main.eaf7f20b.js.map": "/regulargoblin/static/js/main.eaf7f20b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f093cda1.css",
+    "static/js/main.eaf7f20b.js"
+  ]
+}
